@@ -1,4 +1,4 @@
 'use strict';
 
 // Define the `dashboard` module
-angular.module('dashboard', [accordion, datepicker]);
+angular.module('dashboard', []);

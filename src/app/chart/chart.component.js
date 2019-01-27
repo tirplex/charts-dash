@@ -100,6 +100,13 @@ component('chart', {
         data: self.data,
       }]
     };
+
+
+
+
+    this.onCloseChart = function (){
+      this.$emit('onCloseChart', ()=>{});
+    }
     
     this.$onInit = function () {
 

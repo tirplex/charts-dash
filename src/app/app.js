@@ -21,6 +21,8 @@ import 'ng-resize';
 // import 'angular-resizable/angular-resizable.min.css'
 // import 'angular-resizable/angular-resizable.min.js'
 
+import './dashboard/dashboard.module'
+import './dashboard/dashboard.component'
 
 import './chart/chart.module'
 import './chart/chart.component'
@@ -54,6 +56,7 @@ angular.module(MODULE_NAME, [
     'ui.bootstrap',
 
     //view components 
+    'dashboard',
     'chart',
     'phoneList',
 
