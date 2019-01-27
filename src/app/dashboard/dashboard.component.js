@@ -18,7 +18,7 @@ component('dashboard', {
     this.addNewChart = function () {
 
       this.charts.push({
-        id: this.charts.length+1
+        id: (new Date()).getTime()
       })
     }
 

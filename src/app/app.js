@@ -12,6 +12,11 @@ import './chart/ncCharts.directive'
 import 'highcharts-ng';
 
 
+import 'angularjs-color-picker/dist/angularjs-color-picker.min.css'
+import 'angularjs-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css'
+import 'tinycolor2/dist/tinycolor-min.js'
+import 'angularjs-color-picker/dist/angularjs-color-picker.min.js'
+
 
 import './drag-module/resize'
 import './drag-module/resize2'
@@ -61,6 +66,8 @@ angular.module(MODULE_NAME, [
     'phoneList',
 
     // test
+
+    'color.picker',
 
     'ncCharts',
     'highcharts-ng',

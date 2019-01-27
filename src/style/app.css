@@ -1,4 +1,5 @@
 /* styles in src/style directory are applied to the whole page */
+
 body {
   background: rgb(255, 255, 255);
   color: #000;
@@ -21,106 +22,67 @@ footer {
   font-size: 0.8em;
 }
 
-
-
-
 /* 
 Highcharts width exceeds container div on first load
 https://stackoverflow.com/questions/18240254/highcharts-width-exceeds-container-div-on-first-load 
 */
 .highcharts-container,
 .highcharts-root {
-  width:100% !important;
-  height:100% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 
+.dashboard-header {
+  margin: 3em 0;
+}
+
+.dashboard-header h1 {
+  display: inline;
+}
 
 
+.my-group .form-control {
+  width: 50%;
+}
 
 
+.added-sensors-panel {
+  margin-bottom: .5em;
+}
 
 
+.close {
+  color: #ff0000;
+  opacity: .7;
+}
+
+.series-color-picker {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.series-color-picker button {
+  display: inline-block;
+  vertical-align: top;
+
+}
 
 
+.series-color-picker color-picker {
+  display: inline-block;
+  width: min-content;
+}
 
 
+footer {
+  width: 100%;
+  height: 200px;
+}
 
 
-
-
-
-
-
-
-#topnav {
-  background-color: #333333;
-  display: block;
-  height: 35px;
-  left: 0;
+.close.series {
   position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #DDD;
-}
-
-#sidebar {
-background-color: #EEE;
-  position: absolute;
-  top: 35px;
-  bottom: 0;
-  left: 0;
-  width: 200px;
-  overflow: auto;
-}
-#content {
-  position: absolute;
-  top: 35px;
-  bottom: 0;
-  left: 206px /* 200 + 6*/;
-  right: 0;
-  overflow: hidden;
-  color: #FFF;
-  
-}
-#top-content {
-  position: absolute;
-  top: 0;
-  bottom: 136px; /* 130 + 6 */
-  left: 0;
-  right: 0;
-  background-color: #444;
-  overflow: auto;
-}
-#bottom-content {
-  position: absolute;
-  height: 130px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  overflow: auto;
-  background-color: #777;
-}
-
-#sidebar-resizer {
-background-color: #666;
-  position: absolute;
-  top: 35px;
-  bottom: 0;
-  left: 200px;
-  width: 6px;
-  cursor: e-resize;
-}
-#content-resizer {
-  position: absolute;
-  height: 6px;
-  bottom: 130px;
-  left: 0;
-  right: 0;
-  background-color: #666;
-  cursor: n-resize;
-}
-
-#sidebar-resizer:hover, #preview-resizer:hover {
-background-color: #AAA;
+  top: 7px;
+  right: 10px;
 }

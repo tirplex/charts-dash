@@ -15,6 +15,7 @@
     "angular": "^1.7.0",
     "angular-animate": "^1.7.6",
     "angular-touch": "^1.7.6",
+    "angularjs-color-picker": "^3.4.8",
     "bootstrap": "^3.4.0",
     "highcharts": "^7.0.2",
     "highcharts-ng": "^1.2.1",

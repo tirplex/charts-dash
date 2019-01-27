@@ -1,15 +1,19 @@
-<h1>My charts</h1>
-
-<div>
-  <button type="button" class="btn btn-success btn-lg" ng-click="$ctrl.addNewChart()">+ ADD</button>
+<div class="dashboard-header">
+  <h1>My charts</h1>
+  <button type="button" class="btn btn-success btn-lg pull-right" ng-click="$ctrl.addNewChart()" ng-disabled="$ctrl.charts.length >= 4 ? true : false">
+    <span aria-hidden="true" style="font-size: 1em;">&plus;</span>
+    create new chart
+  </button>
 </div>
 
-<div ng-repeat="chart in $ctrl.charts | orderBy:'$index':true">
 
-  <div class="panel panel-info">
+
+<div class="" ng-repeat="chart in $ctrl.charts | orderBy:'$index':true">
+
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">
-        Panel title {{$index}}
+        Chart №:{{ $ctrl.charts.length - $index }}
         <button type="button" class="close" aria-label="Close" ng-click="$ctrl.onCloseChart($index, chart.id);">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,13 +21,8 @@
     </div>
     <div class="panel-body">
       <chart id="{{$index}}"></chart>
-
-      <div class="panel panel-default">
-        <div class="panel-body">
-        </div>
-      </div>
     </div>
   </div>
 </div>
-
+</div>
 </div>

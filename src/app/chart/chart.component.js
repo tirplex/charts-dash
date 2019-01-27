@@ -1,7 +1,9 @@
 'use strict';
 
-// import * as Highcharts from 'highcharts';
-import * as Highcharts from 'highcharts/highstock';
+import * as Highcharts from 'highcharts';
+// import * as Highcharts from 'highcharts/highstock';
+
+import sensors from '../mock-data/sensors.js';
 
 // Register `chart` component, along with its associated controller and template
 angular.
@@ -13,50 +15,27 @@ component('chart', {
   template: require('./chart.template.html'),
   controller: function chartController() {
 
-    
+    this.sensors = sensors;
+    console.log(sensors);
 
-    var self = this;
-
-    this.series = null;
+    let self = this;
 
     this.Cid = `chart-container-${(new Date()).getTime()}`
-    console.log(this.Cid);
-    
+    this.data = []
+    this.selectedSensor = 0;
 
-    this.data = (function () {
-      // generate an array of random data
-      var data = [],
-        time = (new Date()).getTime(),
-        i;
-
-      for (i = -10; i <= 0; i += 1) {
-        data.push([
-          time + i * 1000,
-          Math.round(Math.random() * 100)
-        ]);
-      }
-      return data;
-    }());
-
-    this.randAdd = function () {
-      let time = (new Date()).getTime()
-
-      var x = (new Date()).getTime(), // current time
-        y = Math.round(Math.random() * 100);
-      // this.series.addPoint([x, y], true, true);
-      // this.chartOptions.series[0].addPoint([x, y], true, true);
-      this.chart.series[0].addPoint([x, y], true, true);
-      console.log(self.series, this.chartOptions.series)
-    };
-
+    this.color = '#ff0000';
+    this.colorPickerOptions = {
+      format: 'hexString'
+    }
 
     this.chartOptions = {
       chart: {
         events: {
           load: function () {
             // set up the updating of the chart each second
-            var series = this.series[0];
-            self.series = series;
+            // var series = this.series[0];
+            // self.series = series;
             // setInterval(function () {
             //   var x = (new Date()).getTime(), // current time
             //     y = Math.round(Math.random() * 100);
@@ -67,7 +46,7 @@ component('chart', {
       },
 
       time: {
-        useUTC: false
+        useUTC: true
       },
 
       rangeSelector: {
@@ -95,24 +74,52 @@ component('chart', {
         enabled: false
       },
 
-      series: [{
-        name: 'Random data',
-        data: self.data,
-      }]
+      xAxis: {
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+          month: '%e. %b',
+          year: '%b'
+        },
+        title: {
+          text: 'Date'
+        }
+      },
+
+      // series: [{
+      //   name: '',
+      //   data: [],
+      // }]
     };
 
+    this.onAddSeries = function () {
+      let sensor = this.sensors.find(el => el.id === +this.selectedSensor)
+      let nameIndex = this.chart.series.findIndex(el => el.name === sensor.name)
+      console.log(this.chart.series);
 
 
-
-    this.onCloseChart = function (){
-      this.$emit('onCloseChart', ()=>{});
+      if (sensor != undefined && nameIndex == -1) {
+        this.chart.addSeries({
+          type: sensor.type,
+          id: sensor.id,
+          name: sensor.name,
+          data: sensor.data,
+        })
+        this.chart.reflow();
+      }
     }
-    
+
+    this.onRemoveChartSeries = function (seria) {
+      let index = this.chart.series.findIndex(el => el.userOptions.id === seria.userOptions.id)
+      if (index != -1) {
+        this.chart.series[index].remove();
+      }
+    }
+
     this.$onInit = function () {
 
       // wait some staff 
       setTimeout(() => {
-        self.chart = Highcharts.stockChart(self.Cid, self.chartOptions);
+        self.chart = Highcharts.chart(self.Cid, self.chartOptions);
       }, 0);
 
     };
@@ -121,3 +128,8 @@ component('chart', {
 
   }
 });
+
+
+
+// chart.series[0].options.color = "#008800";
+// chart.series[0].update(chart.series[0].options);
