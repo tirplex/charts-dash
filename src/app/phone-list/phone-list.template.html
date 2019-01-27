@@ -5,52 +5,62 @@
   </li>
 </ul> -->
 
-<div style="width: 600px; border: 2px solid;
-padding: 20px; 
-width: 300px;
-resize: both !important;
-overflow: auto;" my-draggable class="panel panel-default">
-<div class="panel-header">
-  asfasdf
-</div>
+
+<hr>
+
+<div>{{$ctrl.inData}}</div>
+<div>{{$ctrl.id}}</div>
+<hr>
+<hr>
+<hr>
+<hr>
+
+
+<input type="text" ng-model="$ctrl.chartOptions.title.text">
+<button ng-click="$ctrl.randAdd()">add</button>
+
+
+<div id="container-chart3"></div>
+
+<hc-chart chart="$ctrl.chart1" options="$ctrl.chartOptions">Placeholder for generic chart</hc-chart>
+<pre>
+{{$ctrl.data.length}}
+
+<!-- {{$attr}} -->
+
+<!-- {{$ctrl.id}} {{$ctrl.data2}} -->
+
+</pre>
+
+
+<!-- <highchart id="chart1" config="$ctrl.chartConfig"></highchart> -->
+
+
+<hc-pie-chart title="Browser usage" data="$ctrl.pieData">Placeholder for pie chart</hc-pie-chart>
+
+
+<hr>
+
+
+
+
+<div class="panel panel-default">
+  <div class="panel-header">
+    asfasdf
+  </div>
   <div class="panel-body">
-    
+
     <label>Basic panel example</label>
-    
-    <div id="chart-container">Placeholder for chart</div>
+
+    <div ng-init="$ctrl.reflow()" id="chart-container">Placeholder for chart</div>
   </div>
 </div>
 
 
-<div id="topnav">Top navbar</div>
-  
-  	<div id="sidebar">
-  		<h3>Side navbar</h3>
-  	</div>
-  
-  	<div id="content">
+<button ng-click="$ctrl.add()">add</button>
+<button onclick="resizeVideoPage()">add</button>
 
-  		<div id="top-content">Top content <p>{{content}}</p></div>
-  
-  		<div id="bottom-content">Bottom content</div>
-  
-  		<div id="content-resizer" 
-  			resizer="horizontal" 
-  			resizer-height="6" 
-  			resizer-top="#top-content" 
-  			resizer-bottom="#bottom-content">
-  		</div>
-  
-  	</div>
-  
-  	<div id="sidebar-resizer" 
-  		resizer="vertical" 
-  		resizer-width="6" 
-  		resizer-left="#sidebar" 
-  		resizer-right="#content"
-  		resizer-max="400">
-  	</div>
-  	
+
 
 
 <!-- <section resizable r-directions="['bottom', 'right']" r-flex="true">asdfasdfas d</section> -->

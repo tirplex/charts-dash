@@ -24,6 +24,18 @@ footer {
 
 
 
+/* 
+Highcharts width exceeds container div on first load
+https://stackoverflow.com/questions/18240254/highcharts-width-exceeds-container-div-on-first-load 
+*/
+.highcharts-container,
+.highcharts-root {
+  width:100% !important;
+  height:100% !important;
+}
+
+
+
 
 
 
