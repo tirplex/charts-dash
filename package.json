@@ -12,11 +12,19 @@
   "author": "tirplex",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.7.0"
+    "angular": "^1.7.0",
+    "angular-animate": "^1.7.6",
+    "angular-touch": "^1.7.6",
+    "bootstrap": "^3.4.0",
+    "highcharts": "^7.0.2",
+    "highcharts-ng": "^1.2.1",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "ajv": "^6.4.0",
     "angular-mocks": "^1.7.0",
+    "angular-resizable": "^1.2.0",
+    "angular-ui-bootstrap": "^2.5.6",
     "autoprefixer": "^8.4.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -35,6 +43,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "^0.0.32",
     "karma-webpack": "^3.0.0",
+    "ng-resize": "^2.0.0",
     "node-libs-browser": "^2.1.0",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.4",

@@ -1,0 +1,13 @@
+[
+  {
+      "id": 1,
+      "name": "Sensor 1",
+      "description": "test",
+      "data": [
+        { "date": "123", "value": "200" },
+        { "date": "123", "value": "200" },
+        { "date": "123", "value": "200" },
+        { "date": "123", "value": "200" }
+      ]
+  }
+]
