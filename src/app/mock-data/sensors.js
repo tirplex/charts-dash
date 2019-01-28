@@ -1,18 +1,4 @@
-// let genData = function () {
-//   // generate an array of random data
-//   let data = [],
-//     time = (new Date()).getTime(),
-//     i;
-
-//   for (i = -10; i <= 0; i += 1) {
-//     data.push([
-//       time + i * 1000,
-//       Math.round(Math.random() * 100)
-//     ]);
-//   }
-//   return data;
-// };
-
+// GENERATE DYMMY DATA FOR CHARTS
 
 // dates range config
 let startDate = new Date(2019, 0, 1);
@@ -73,7 +59,7 @@ console.log(genData());
 
 
 let sensors = [
-  
+
   {
     id: 1,
     name: "Sensor 1: temperature",

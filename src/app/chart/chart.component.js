@@ -5,7 +5,6 @@ import * as Highcharts from 'highcharts';
 
 import sensors from '../mock-data/sensors.js';
 
-// Register `chart` component, along with its associated controller and template
 angular.
 module('chart').
 component('chart', {
@@ -15,8 +14,8 @@ component('chart', {
   template: require('./chart.template.html'),
   controller: function chartController() {
 
+    // this is dummy data for sensors
     this.sensors = sensors;
-    console.log(sensors);
 
     let self = this;
 
@@ -29,19 +28,12 @@ component('chart', {
       format: 'hexString'
     }
 
+    this.isCollapsed = true;
+
     this.chartOptions = {
       chart: {
         events: {
-          load: function () {
-            // set up the updating of the chart each second
-            // var series = this.series[0];
-            // self.series = series;
-            // setInterval(function () {
-            //   var x = (new Date()).getTime(), // current time
-            //     y = Math.round(Math.random() * 100);
-            //   series.addPoint([x, y], true, true);
-            // }, 1000);
-          }
+          load: function () {}
         }
       },
 
@@ -67,7 +59,7 @@ component('chart', {
       },
 
       title: {
-        text: 'Live random data'
+        text: ''
       },
 
       exporting: {
@@ -83,14 +75,12 @@ component('chart', {
         title: {
           text: 'Date'
         }
-      },
-
-      // series: [{
-      //   name: '',
-      //   data: [],
-      // }]
+      }
     };
 
+    // Add Series on Chart
+    // find correct data for series from dummy sensors
+    // check if we alredy add this sensor at chart
     this.onAddSeries = function () {
       let sensor = this.sensors.find(el => el.id === +this.selectedSensor)
       let nameIndex = this.chart.series.findIndex(el => el.name === sensor.name)
@@ -104,7 +94,6 @@ component('chart', {
           name: sensor.name,
           data: sensor.data,
         })
-        this.chart.reflow();
       }
     }
 
@@ -116,20 +105,11 @@ component('chart', {
     }
 
     this.$onInit = function () {
-
-      // wait some staff 
+      // wait some staff done in stack
       setTimeout(() => {
         self.chart = Highcharts.chart(self.Cid, self.chartOptions);
       }, 0);
 
     };
-
-
-
   }
 });
-
-
-
-// chart.series[0].options.color = "#008800";
-// chart.series[0].update(chart.series[0].options);

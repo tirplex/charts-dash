@@ -11,30 +11,16 @@ import './chart/ncCharts.directive'
 
 import 'highcharts-ng';
 
-
 import 'angularjs-color-picker/dist/angularjs-color-picker.min.css'
 import 'angularjs-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css'
 import 'tinycolor2/dist/tinycolor-min.js'
 import 'angularjs-color-picker/dist/angularjs-color-picker.min.js'
-
-
-import './drag-module/resize'
-import './drag-module/resize2'
-
-import 'ng-resize';
-
-// import 'angular-resizable/angular-resizable.min.css'
-// import 'angular-resizable/angular-resizable.min.js'
 
 import './dashboard/dashboard.module'
 import './dashboard/dashboard.component'
 
 import './chart/chart.module'
 import './chart/chart.component'
-
-
-import './phone-list/phone-list.module.js'
-import './phone-list/phone-list.component.js'
 
 
 let app = () => {
@@ -46,9 +32,7 @@ let app = () => {
 };
 
 class AppCtrl {
-  constructor() {
-    this.url = 'https://github.com/preboot/angular-webpack';
-  }
+  constructor() {}
 }
 
 const MODULE_NAME = 'app';
@@ -57,25 +41,17 @@ angular.module(MODULE_NAME, [
     // init
     'ngAnimate',
     'ngTouch',
-    'ngResize',
     'ui.bootstrap',
+    'color.picker',
+    'highcharts-ng',
 
     //view components 
     'dashboard',
     'chart',
-    'phoneList',
 
     // test
-
-    'color.picker',
-
-    'ncCharts',
-    'highcharts-ng',
-    // 'highcharts',
-    'dragModule',
-    'resizeModule',
-    'mc.resizer'
-    // 'angularResizable'
+    // 'ncCharts',
+    // 'dragModule',
   ])
   .directive('app', app)
   .controller('AppCtrl', AppCtrl);

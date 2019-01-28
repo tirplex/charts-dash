@@ -1,14 +1,26 @@
-<div class="dashboard-header">
-  <h1>My charts</h1>
-  <button type="button" class="btn btn-success btn-lg pull-right" ng-click="$ctrl.addNewChart()" ng-disabled="$ctrl.charts.length >= 4 ? true : false">
-    <span aria-hidden="true" style="font-size: 1em;">&plus;</span>
-    create new chart
-  </button>
+<div class="col-md-12">
+  <div class="dashboard-header ">
+    <h1>My charts</h1>
+
+    <button type="button" class="btn btn-success btn-lg pull-right" ng-click="$ctrl.addNewChart()" ng-disabled="$ctrl.charts.length >= 4 ? true : false">
+      <span aria-hidden="true" style="font-size: 1em;">&plus;</span>
+      create new chart
+    </button>
+    <div class="btn-group pull-right" role="group" aria-label="...">
+      <button type="button" class="btn btn-default btn-lg" ng-click="table = false">
+        <i class="fas fa-bars"></i>
+        <button type="button" class="btn btn-default btn-lg" ng-click="table = true">
+          <i class="fas fa-table"></i>
+        </button>
+    </div>
+  </div>
+
+  <div ng-if="!$ctrl.charts.length" class="alert alert-info">
+    <strong>Info!</strong>Nothing here! Add some charts in to your dashboard
+  </div>
 </div>
 
-
-
-<div class="" ng-repeat="chart in $ctrl.charts | orderBy:'$index':true">
+<div class="{{ table ? 'col-md-6' : 'col-md-12'}}" ng-repeat="chart in $ctrl.charts | orderBy:'$index':true">
 
   <div class="panel panel-default">
     <div class="panel-heading">

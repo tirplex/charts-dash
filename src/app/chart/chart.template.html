@@ -9,55 +9,49 @@
     <span class="input-group-btn">
       <button class="btn btn-success" type="submit" ng-click="$ctrl.onAddSeries()" ng-disabled="!$ctrl.selectedSensor">
         <span aria-hidden="true" style="font-size: 1em;">&plus;</span>
-        add data
+        add data to chart
       </button>
     </span>
-
   </div>
-
 </div>
 
-
 <div id="{{$ctrl.Cid}}">Placeholder for chart</div>
-
-
 <hr>
 
-
 <div>
-  <label class="" for="">Sensors:</label>
-
-  <div ng-repeat="sensor in $ctrl.chart.series" class="panel panel-default added-sensors-panel">
-    <div class="panel-body" style="position: relative;">
-      {{ sensor.name }}
-      <!-- {{ $ctrl.color}} -->
-
-
-      <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess2">color config:</label>
-        <div class="input-group">
-          <div class="series-color-picker">
-            <color-picker ng-model="sensor.options.color" options="$ctrl.colorPickerOptions"></color-picker>
-            <button ng-click="sensor.update(sensor.options);">set color</button>
+  <button type="button" class="btn btn-info" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
+    <i class="fas fa-edit"></i>Edit Sensors Configuration ...
+  </button>
+  <div uib-collapse="$ctrl.isCollapsed">
+    <div ng-repeat="sensor in $ctrl.chart.series" class="panel panel-default added-sensors-panel">
+      <div class="panel-body" style="position: relative;">
+        {{ sensor.name }}
+        <div class="form-group">
+          <label class="control-label" for="inputGroupSuccess2">color config:</label>
+          <div class="input-group">
+            <div class="series-color-picker">
+              <color-picker ng-model="sensor.options.color" options="$ctrl.colorPickerOptions"></color-picker>
+              <button ng-click="sensor.update(sensor.options);">set color</button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess2">color config:</label>
-        <div class="input-group">
-          <select style="height: 26px;" id="lunch" ng-model="sensor.options.type" class="" data-live-search="true"
-            title="Please select a lunch ...">
-            <option value="line">line</option>
-            <option value="bar">bar</option>
-          </select>
-          <button ng-click="sensor.update(sensor.options);">set type</button>
+        <div class="form-group">
+          <label class="control-label" for="inputGroupSuccess2">color config:</label>
+          <div class="input-group">
+            <select style="height: 26px;" id="lunch" ng-model="sensor.options.type" class="" data-live-search="true"
+              title="Please select a lunch ...">
+              <option value="line">line</option>
+              <option value="bar">bar</option>
+            </select>
+            <button ng-click="sensor.update(sensor.options);">set type</button>
+          </div>
         </div>
-      </div>
 
-      <button type="button" class="close series" aria-label="Close" ng-click="$ctrl.onRemoveChartSeries(sensor);">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <button type="button" class="close series" aria-label="Close" ng-click="$ctrl.onRemoveChartSeries(sensor);">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
     </div>
   </div>
 </div>
